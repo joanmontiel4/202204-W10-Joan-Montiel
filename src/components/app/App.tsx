@@ -1,4 +1,4 @@
-import { menuOptionsType } from '../';
+import { menuOptionsType } from '../../interfaces/menuoptions';
 import { Home } from '../../pages/home';
 import { Layout } from '../layout/layout';
 
