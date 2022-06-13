@@ -1,20 +1,11 @@
-import { menuOptionsType } from '../../interfaces/menuoptions';
-import { Home } from '../../pages/home';
-import { Layout } from '../layout/layout';
+import { Header } from '../header/header';
 
 function App() {
-    const appTitle = 'Learning React';
-    const company = 'ISDI Coders';
-    const menuOptions: menuOptionsType = [
-        { path: './index.html', label: 'Home' },
-        { path: './tasks.html', label: 'Tasks' },
-        { path: './about.html', label: 'About' },
-    ];
-
+    const appTitle = 'The pointing gentlemen';
     return (
-        <Layout appTitle={appTitle} company={company} menuOptions={menuOptions}>
-            <Home></Home>
-        </Layout>
+        <Header appTitle={appTitle}></Header>
+        // <Controls></Controls>
+        // <Main></Main>
     );
 }
 

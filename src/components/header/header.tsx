@@ -1,25 +1,8 @@
 import './header.css';
-export function Header({
-    appTitle,
-    children,
-}: {
-    appTitle: string;
-    children: JSX.Element;
-}) {
-    const logo = './logo.svg';
+export function Header({ appTitle }: { appTitle: string }) {
     return (
-        <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1>{appTitle}</h1>
-            <a
-                className="App-link"
-                href="https://reactjs.org"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Learn React
-            </a>
-            {children}
+        <header className="main-header">
+            <h1 className="main-title">{appTitle}</h1>
         </header>
     );
 }
