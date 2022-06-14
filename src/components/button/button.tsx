@@ -1,5 +1,18 @@
 import './button.css';
 
-export function Button() {
-    return <button className="button button--select">Select all</button>;
+export function Button({
+    areAllSelected,
+    handleSelect,
+}: {
+    areAllSelected: boolean;
+    handleSelect: (selectedValue: boolean) => void;
+}) {
+    return (
+        <button
+            className="button button--select"
+            onClick={() => handleSelect(!areAllSelected)}
+        >
+            {areAllSelected ? 'Unselect all' : 'Select all'}
+        </button>
+    );
 }
