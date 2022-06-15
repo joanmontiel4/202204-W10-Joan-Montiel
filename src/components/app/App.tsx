@@ -18,7 +18,9 @@ function App() {
     const handleCheckButton = (gentId: number) => {
         setGentData(
             gentData.map((item) =>
-                item.id === gentId ? { ...item, selected: true } : item
+                item.id === gentId
+                    ? { ...item, selected: !item.selected }
+                    : item
             )
         );
     };
