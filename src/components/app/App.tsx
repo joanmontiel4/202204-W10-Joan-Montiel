@@ -9,25 +9,49 @@ function App() {
     const appTitle = 'The pointing gentlemen';
     const [gentData, setGentData] = useState(gentlemenData);
 
-    const handleSelect = (selectedValue: boolean): void => {
+    const handleSelectButton = (selectedValue: boolean): void => {
         setGentData(
             gentData.map((item) => ({ ...item, selected: selectedValue }))
         );
+    };
+
+    const handleCheckButton = (gentId: number) => {
+        setGentData(
+            gentData.map((item) =>
+                item.id === gentId ? { ...item, selected: true } : item
+            )
+        );
+    };
+
+    const selectedGentCounter = () => {
+        let countGent = 0;
+        gentData.map((item) => {
+            item.selected && countGent++;
+        });
+        return countGent.toString();
+    };
+
+    const handleDeleteButton = (gentId: number) => {
+        setGentData(gentData.filter((item) => item.id !== gentId && item));
     };
 
     return (
         <>
             <Header appTitle={appTitle}></Header>
             <section className="controls">
-                <Info></Info>
+                <Info numSelectedGent={selectedGentCounter()}></Info>
                 <Button
                     areAllSelected={gentData.every((item) => item.selected)}
-                    handleSelect={handleSelect}
+                    handleSelectButton={handleSelectButton}
                 ></Button>
             </section>
             <main className="main">
                 <ul className="gentlemen">
-                    <Gentleman gentData={gentData}></Gentleman>
+                    <Gentleman
+                        gentData={gentData}
+                        handleCheckButton={handleCheckButton}
+                        handleDeleteButton={handleDeleteButton}
+                    ></Gentleman>
                 </ul>
             </main>
         </>

@@ -2,15 +2,15 @@ import './button.css';
 
 export function Button({
     areAllSelected,
-    handleSelect,
+    handleSelectButton,
 }: {
     areAllSelected: boolean;
-    handleSelect: (selectedValue: boolean) => void;
+    handleSelectButton: (selectedValue: boolean) => void;
 }) {
     return (
         <button
             className="button button--select"
-            onClick={() => handleSelect(!areAllSelected)}
+            onClick={() => handleSelectButton(!areAllSelected)}
         >
             {areAllSelected ? 'Unselect all' : 'Select all'}
         </button>

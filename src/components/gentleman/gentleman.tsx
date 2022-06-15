@@ -1,7 +1,15 @@
 import './gentleman.css';
 import { gentlemenInfo } from '../../interfaces/gentlemanInfo';
 
-export function Gentleman({ gentData }: { gentData: gentlemenInfo }) {
+export function Gentleman({
+    gentData,
+    handleCheckButton,
+    handleDeleteButton,
+}: {
+    gentData: gentlemenInfo;
+    handleCheckButton: (gentId: number) => void;
+    handleDeleteButton: (gentId: number) => void;
+}) {
     return (
         <>
             {gentData.map((item) => {
@@ -44,8 +52,14 @@ export function Gentleman({ gentData }: { gentData: gentlemenInfo }) {
                                 </li>
                             </ul>
                         </div>
-                        <i className="icon gentleman__icon fas fa-check"></i>
-                        <i className="icon gentleman__icon gentleman__icon--delete fas fa-times"></i>
+                        <i
+                            className="icon gentleman__icon fas fa-check"
+                            onClick={() => handleCheckButton(item.id)}
+                        ></i>
+                        <i
+                            className="icon gentleman__icon gentleman__icon--delete fas fa-times"
+                            onClick={() => handleDeleteButton(item.id)}
+                        ></i>
                     </li>
                 );
             })}
