@@ -27,7 +27,7 @@ function App() {
 
     const selectedGentCounter = () => {
         let countGent = 0;
-        gentData.map((item) => {
+        gentData.forEach((item) => {
             item.selected && countGent++;
         });
         return countGent.toString();
