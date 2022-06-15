@@ -5,6 +5,8 @@ import { Gentleman } from '../gentleman/gentleman';
 import { useState } from 'react';
 import { gentlemenData } from '../../data/gentlemenData';
 
+import '../../css/styles.css';
+
 function App() {
     const appTitle = 'The pointing gentlemen';
     const [gentData, setGentData] = useState(gentlemenData);
